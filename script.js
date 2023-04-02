@@ -14,20 +14,39 @@ function getComputerChoice(){
     }
 }
 
-getComputerChoice();
-
 //use switch to figure out who wins when
-function playRound(playerSelection, computerSelection) {
-    if((playerSelection == 'rock') &&  (computerSelection == 'rock')){
-        return 'Tie!';
-    } else if((playerSelection == 'rock') && (computerSelection == 'paper')){
-        return 'you lose, paper beats rock';
-    }else if((playerSelection == 'rock') && (computerSelection == 'scissors')){
-        return 'you win, scissors beats rock';
+function playRound(playerSelection, computerSelection) 
+{
+    if(playerSelection === computerSelection) 
+    {
+        return "this game is a tie!";
+    }
+
+    if(playerSelection === 'rock')
+    {
+        if(computerSelection == 'paper'){
+            return "sorry computer won!";
+        }else{
+            return "congratulations, you won!";
+        }
+    }
+
+    if(playerSelection === 'paper'){
+        if(computerSelection === 'scissors'){
+            return "sorry, computer won!";
+        }else{
+            return "congratulations, you won!";
+        }
+    }
+
+    if(playerSelection === 'scissors'){
+        if(computerSelection === 'rock'){
+            return "sorry, computer won!";
+        }else{
+            return "congratulations, you won!";
+        }
     }
 }
-
-
 const playerSelection = 'rock';
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
