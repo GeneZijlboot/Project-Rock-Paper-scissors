@@ -3,8 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <script src="script.js"></script>
+        <p id="Text">Rock - Paper - Scissors</p>
+        <p id="Text">Chose You're Weapen wisely!</p>
+        <p id="Text">First To 5 Wins</p>
+            
+        <div id="Choices">
+            <button id="userchoice"><img src="images/rock.png" alt="Rock" class="image" width="250" height="250"></button>
+            <button id="userchoice"><img src="images/paper.png" alt="Paper" class="image" width="250" height="250"></button>
+            <button id="userchoice"><img src="images/scissors.png" alt="Scissors" class="image" width="250" height="250"></button>
+        </div>
+
+        <div id="Score">
+            <div>
+                <p id="Player">Player Score</p>
+                <p id="PlayerScore">0</p>
+            </div>  
+            <div>
+                <p id="text">May The Odds Be Ever In You're Favour!</p>
+            </div>  
+            <div>
+                <p id="Computer">Computer Score</p>
+                <p id="ComputerScore">0</p>
+            </div>
+        </div>
+        <div id="MadeBy">
+            <p>Copyright © Gene Zijlmans</p>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>

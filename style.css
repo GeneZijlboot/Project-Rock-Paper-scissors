@@ -1,0 +1,65 @@
+body {
+    font-family: monospace;
+    margin: 0px;
+    background-color: #ffea00;
+    text-align: center;
+    justify-content: center;
+}
+#Text{
+    margin: 20px;
+    font-size: 30px;
+}
+
+#Choices{
+    resize: 10px;
+    margin-top: 50px;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+#userchoice{
+    border: solid 1px #ffea00;
+    background-color: #ffea00;
+}
+#Score{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#PlayerScore{
+    padding: 50px;
+    border: solid black 8px;
+    border-radius: 10px;
+}
+
+#text{
+    margin-top: 78px;
+    padding: 30px;
+    border: solid black 8px;
+    border-radius: 10px;
+}
+#ComputerScore{
+    padding: 50px;
+    border: solid black 8px;
+    border-radius: 10px;
+}
+
+#Rounds{
+    border: solid black 8px;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0px 450px 40px 450px;
+    font-size: 20px;
+}
+
+#MadeBy{
+    font-size: 20px;
+    border-radius: 10px;
+    padding: auto;
+    color: black;
+}
