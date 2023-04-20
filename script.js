@@ -16,25 +16,45 @@ function getComputerChoice() {
 }
 function win(userChoice, computerChoice)
 {
-    userScore++;
-    userScore_par.innerHTML = userScore;
-    computerScore_par.innerHTML = computerScore;
-    text_result.innerHTML = userChoice + " beats " + computerChoice + ". you win!";
+    if(userScore < 5){
+        userScore++;
+        userScore_par.innerHTML = userScore;
+        computerScore_par.innerHTML = computerScore;
+        text_result.innerHTML = userChoice + " beats " + computerChoice + ". you win!";
+    } else if(userScore === 5){
+        text_result.innerHTML = "You Win!";
+        rock_button.disabled = true;
+        paper_button.disabled = true;
+        scissors_button.disabled = true;
+    }
 }
 
 function lose(userChoice, computerChoice)
 {
-    computerScore++;
-    userScore_par.innerHTML = userScore;
-    computerScore_par.innerHTML = computerScore;
-    text_result.innerHTML = userChoice + " loses to " + computerChoice + ". you win!";
+    if(computerScore < 5){
+        computerScore++;
+        userScore_par.innerHTML = userScore;
+        computerScore_par.innerHTML = computerScore;
+        text_result.innerHTML = userChoice + " loses to " + computerChoice + ". you lose!";
+    } else if (computerScore === 5){
+        text_result.innerHTML = "You Lost, the computer wins!";
+        rock_button.disabled = true;
+        paper_button.disabled = true;
+        scissors_button.disabled = true;
+    }
 }
 
 function draw(userChoice, computerChoice)
 {
-    userScore_par.innerHTML = userScore;
-    computerScore_par.innerHTML = computerScore;
-    text_result.innerHTML = userChoice + " and " + computerChoice + ". its a tie!"; 
+    if(computerScore < 5 && userScore < 5){
+        userScore_par.innerHTML = userScore;
+        computerScore_par.innerHTML = computerScore;
+        text_result.innerHTML = userChoice + " and " + computerChoice + ". its a tie!";
+    } else if(computerChoice === 5 && userScore === 5){
+        rock_button.disabled = true;
+        paper_button.disabled = true;
+        scissors_button.disabled = true;
+    }
 }
 
 //userchoice --> result of pressing the buttons
@@ -64,7 +84,6 @@ function game(userChoice) {
 function main(){
     rock_button.addEventListener('click', function() {
         game("rock");
-
     })
     
     paper_button.addEventListener('click', function() {
@@ -76,19 +95,4 @@ function main(){
     })
 }
 
-function disable(){
-    if (userScore === 5){
-        rock_button.disable = true;
-        paper.disable = true;
-        scissors_button.disable = true;
-        text_result.innerHTML = "you won the Game O/"; 
-    } else if (computerScore === 5){
-        rock_button.disable = true;
-        paper.disable = true;
-        scissors_button.disable = true;
-        text_result.innerHTML = "you lost the Game O/"; 
-    }
-}
-
-disable();
 main();
