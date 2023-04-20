@@ -1,52 +1,94 @@
+let userScore = 0;
+let computerScore = 0;
+const userScore_par = document.getElementById("PlayerScore");
+const computerScore_par = document.getElementById("ComputerScore");
+const scoreBoard = document.querySelector("Score");
+const text_result = document.getElementById("text");
+const rock_button = document.getElementById("r");
+const paper_button = document.getElementById("p");
+const scissors_button = document.getElementById("s");
 
-
-//chose random rock paper or scissors (computer)
-
-function getComputerChoice(){
+//random computer choice 
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
-    switch(randomNumber) {
-    case 0:
-        return('rock');
-    case 1:
-        return('paper');
-    case 2:
-        return('scissors');
-    }
+    return choices[randomNumber];
 }
-
-//use switch to figure out who wins when
-function playRound(playerSelection, computerSelection) 
+function win(userChoice, computerChoice)
 {
-    if(playerSelection === computerSelection) 
-    {
-        return "this game is a tie!";
-    }
+    userScore++;
+    userScore_par.innerHTML = userScore;
+    computerScore_par.innerHTML = computerScore;
+    text_result.innerHTML = userChoice + " beats " + computerChoice + ". you win!";
+}
 
-    if(playerSelection === 'rock')
-    {
-        if(computerSelection == 'paper'){
-            return "sorry computer won!";
-        }else{
-            return "congratulations, you won!";
-        }
-    }
+function lose(userChoice, computerChoice)
+{
+    computerScore++;
+    userScore_par.innerHTML = userScore;
+    computerScore_par.innerHTML = computerScore;
+    text_result.innerHTML = userChoice + " loses to " + computerChoice + ". you win!";
+}
 
-    if(playerSelection === 'paper'){
-        if(computerSelection === 'scissors'){
-            return "sorry, computer won!";
-        }else{
-            return "congratulations, you won!";
-        }
-    }
+function draw(userChoice, computerChoice)
+{
+    userScore_par.innerHTML = userScore;
+    computerScore_par.innerHTML = computerScore;
+    text_result.innerHTML = userChoice + " and " + computerChoice + ". its a tie!"; 
+}
 
-    if(playerSelection === 'scissors'){
-        if(computerSelection === 'rock'){
-            return "sorry, computer won!";
-        }else{
-            return "congratulations, you won!";
-        }
+//userchoice --> result of pressing the buttons
+function game(userChoice) { 
+    const computerChoice = getComputerChoice();
+
+    switch (userChoice + computerChoice) {
+        case "rockscissors":
+        case "paperrock":
+        case "scissorspaper":
+            win(userChoice,  computerChoice);
+            break;
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
+            lose(userChoice,  computerChoice);
+            break;
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            draw(userChoice, computerChoice);
+            break;
     }
 }
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+//clicking the buttons 
+function main(){
+    rock_button.addEventListener('click', function() {
+        game("rock");
+
+    })
+    
+    paper_button.addEventListener('click', function() {
+        game("paper");
+    })
+    
+    scissors_button.addEventListener('click', function() {
+        game("scissors");
+    })
+}
+
+function disable(){
+    if (userScore === 5){
+        rock_button.disable = true;
+        paper.disable = true;
+        scissors_button.disable = true;
+        text_result.innerHTML = "you won the Game O/"; 
+    } else if (computerScore === 5){
+        rock_button.disable = true;
+        paper.disable = true;
+        scissors_button.disable = true;
+        text_result.innerHTML = "you lost the Game O/"; 
+    }
+}
+
+disable();
+main();

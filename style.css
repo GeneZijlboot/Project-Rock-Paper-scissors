@@ -19,7 +19,7 @@ body {
     gap: 35px;
 }
 
-#userchoice{
+#r, #p, #s{
     border: solid 1px #ffea00;
     background-color: #ffea00;
 }
