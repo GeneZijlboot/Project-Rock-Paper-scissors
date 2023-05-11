@@ -57,9 +57,9 @@ body {
     font-size: 20px;
 }
 
-#MadeBy{
+#MadeBy, a{
     font-size: 20px;
-    border-radius: 10px;
+    text-decoration: none;
     padding: auto;
     color: black;
 }
